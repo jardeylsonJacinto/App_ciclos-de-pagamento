@@ -7,5 +7,5 @@ module.exports = function (server) {
 
   // rotas da API
   const billingCycleService = require('../api/billingCycle/billingCycleService')
-  billingCycleService.register(router, '/billincycle')
+  billingCycleService.register(router, '/billingCycles')
 }

@@ -2,7 +2,7 @@ const _ = require('lodash')
 const BillingCycle = require('../billingCycle/billingCycle')
 
 // Mais uma função middleware
-function getSummary(req, res) {
+function getSummary(request, response) {
   BillingCycle.aggregate(
     [
       {
@@ -24,9 +24,9 @@ function getSummary(req, res) {
     ],
     function (error, result) {
       if (error) {
-        res.status(500).json({ errors: [error] })
+        response.status(500).json({ errors: [error] })
       } else {
-        res.json(_.defaults(result[0], { credit: 0, debt: 0 }))
+        response.json(_.defaults(result[0], { credit: 0, debt: 0 }))
       }
     }
   )
